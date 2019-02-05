@@ -1,9 +1,11 @@
 package engine
 
 import (
+	"fmt"
+
 	"github.com/gin-gonic/gin"
-	"github.com/spf13/viper"
 	"github.com/openlab-red/mutating-webhook-vault-agent/pkg/kubernetes"
+	"github.com/spf13/viper"
 )
 
 func Start() {
@@ -24,7 +26,7 @@ func hook(engine *gin.Engine) {
 
 	sidecarConfig := kubernetes.SidecarConfig{}
 	kubernetes.Load("/var/run/secrets/kubernetes.io/config/sidecarconfig.yaml", &sidecarConfig)
-
+	fmt.Println("Testing hook")
 	wk := kubernetes.WebHook{
 		SidecarConfig: &sidecarConfig,
 	}

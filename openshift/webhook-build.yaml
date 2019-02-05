@@ -22,7 +22,7 @@ spec:
   runPolicy: Serial
   source:
     git:
-      uri: https://github.com/openlab-red/mutating-webhook-vault-agent
+      uri: https://github.com/arunbsar/mutating-webhook-vault-agent
     type: Git
   strategy:
     dockerStrategy:
@@ -68,7 +68,7 @@ spec:
   runPolicy: Serial
   source:
     git:
-      uri: https://github.com/openlab-red/mutating-webhook-vault-agent
+      uri: https://github.com/arunbsar/mutating-webhook-vault-agent
     type: Git
   strategy:
     dockerStrategy:
