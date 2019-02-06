@@ -1,16 +1,18 @@
 package kubernetes
 
 import (
+	"fmt"
+	"net/http"
+
 	"github.com/gin-gonic/gin"
-	corev1 "k8s.io/api/core/v1"
-	"k8s.io/apimachinery/pkg/runtime"
-	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
-	"k8s.io/apimachinery/pkg/runtime/serializer"
+	"github.com/sirupsen/logrus"
 	"k8s.io/api/admission/v1beta1"
 	admissionregistrationv1beta1 "k8s.io/api/admissionregistration/v1beta1"
+	corev1 "k8s.io/api/core/v1"
+	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"k8s.io/apimachinery/pkg/runtime"
+	"k8s.io/apimachinery/pkg/runtime/serializer"
 	"k8s.io/kubernetes/pkg/apis/core/v1"
-	"net/http"
-	"github.com/sirupsen/logrus"
 )
 
 var (
@@ -43,7 +45,7 @@ var (
 )
 
 func (wk *WebHook) Mutate(context *gin.Context) {
-
+	fmt.Println("It's a webhook hit :)")
 	ar := v1beta1.AdmissionReview{}
 
 	if err := context.ShouldBindJSON(&ar); err == nil {
